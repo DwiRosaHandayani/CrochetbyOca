@@ -1,0 +1,532 @@
+/* ===================================== */
+/*             ROOT VARIABLES            */
+/* ===================================== */
+/* Warna utama untuk pink dan background */
+:root {
+    --pink: #A53860;
+    --bg: #000000;
+  }
+  
+  /* ===================================== */
+  /*        GLOBAL RESET & BASE STYLES     */
+  /* ===================================== */
+  /* Reset semua elemen dan set font global */
+  * {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    text-decoration: none;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Atur background halaman dan warna teks default */
+  body {
+    background-color: var(--bg);
+    color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+    /*min-height: 5000px; /* untuk simulasi konten panjang */
+  }
+
+  .container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* ===================================== */
+  /*               NAVBAR                  */
+  /* ===================================== */
+  /* Container utama navbar: sticky di atas */
+  .navbar {
+    display: flex;
+    justify-content: space-between; /* logo kiri, menu kanan */
+    align-items: center;
+    padding: 1.4rem 7%;
+    background-color: #EF88AD; /* warna pink solid */
+    border-bottom: 1px solid var(--pink);
+    position: fixed; /* agar tetap di atas saat scroll */
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999; /* selalu di atas elemen lain */
+  }
+  
+  /* Logo teks pada navbar */
+  .navbar .navbar-logo {
+    font-size: 2rem;
+    font-weight: 700;
+    color: white;
+    font-style: italic;
+  }
+  
+  /* Warna berbeda untuk bagian <span> logo */
+  .navbar .navbar-logo span {
+    color: #A53860;
+  }
+  
+  /* Menu navigasi navbar (link-link) */
+  .navbar .navbar-nav a {
+    color: white;
+    display: inline-block;
+    font-size: 1.3rem;
+    margin: 0 1rem;
+  }
+  
+  /* Efek hover warna */
+  .navbar .navbar-nav a:hover {
+    color: #fff6fc;
+  }
+  
+  /* Garis bawah animasi saat hover */
+  .navbar .navbar-nav a::after {
+    content: '';
+    display: block;
+    padding-bottom: 0.5rem;
+    border-bottom: 0.1rem solid #9e4a82;
+    transform: scaleX(0); /* tersembunyi awalnya */
+  }
+  
+  /* Tampilkan garis bawah saat hover */
+  .navbar .navbar-nav a:hover::after {
+    transform: scaleX(0.5);
+    transition: 0.2s linear;
+  }
+  
+  /* Ikon tambahan di kanan navbar (misal: search, user) */
+  .navbar .navbar-extra a {
+    color: white;
+    margin: 0 0.5rem;
+  }
+  
+  .navbar .navbar-extra a:hover {
+    color: #670D2F;
+  }
+  
+  /* Hamburger menu defaultnya tidak ditampilkan */
+  #hamburger-menu {
+    display: none;
+    
+  }
+  
+  /* ===================================== */
+  /*             HERO SECTION              */
+  /* ===================================== */
+  /* Bagian hero dengan gambar latar besar */
+  .hero {
+    min-height: 100vh;
+    background-image: url('../img/header.jpg'); /* ganti path sesuai struktur kamu */
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 10rem 7% 2rem 7%; /* jarak dalam konten */
+    position: relative;
+    overflow: hidden;
+  }
+  
+  /* Gradasi gelap di bawah hero */
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 30%;
+    background: linear-gradient(to bottom, rgba(255, 27, 27, 0) 8%, #080808 90%);
+    pointer-events: none;
+    z-index: 1;
+  }
+  
+  /* Kotak konten teks di dalam hero */
+  .hero .content {
+    max-width: 60rem;
+    background-color: rgba(255, 255, 255, 0.11); /* abu transparan */
+    padding: 10rem 5%;
+    padding-top: 10rem;
+    padding-bottom: 10rem;
+    border-radius: 10px;
+    font-family: 'Caveat', cursive; /* font handwriting */
+    box-shadow: 0 4px 12px #3A0519;
+    
+  }
+  
+  /* Judul utama di hero */
+  .hero .content h1 {
+    font-size: 2.5em;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #fff;
+    text-shadow: 1px 1px 3px #3A0519;
+    line-height: 1.2;
+  }
+  
+  /* Efek warna berbeda untuk bagian judul tertentu */
+  
+  /* Paragraf hero */
+  .hero .content p {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #fff;
+    margin-top: 0.5rem;
+    line-height: 1.4;
+    text-shadow: 1px 1px 3px #000000;
+  }
+  
+  /* Tombol ajakan (CTA) */
+  .hero .content .cta {
+    display: inline-block;
+    background-color: #670D2F;
+    color: rgb(255, 255, 255);
+    padding: 1rem 2rem;
+    border-radius: 6px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    font-size: 1.4rem;
+    margin-top: 2rem;
+  }
+  
+  /* Hover tombol */
+  .cta:hover {
+    background-color: #ffa4b1;
+  }
+  
+ /* ===================================== */
+  /*              About section           */
+  /* ===================================== */
+
+  .about, 
+  .produk, 
+  .contact {
+    padding: 8rem 7% 1.4rem;
+  }
+
+  .about h2, 
+  .produk h2,
+  .contact h2 {
+    text-align: center;
+    font-size: 2.6rem;
+    margin-bottom: 3rem;
+  }
+
+  .about h2 span,
+  .produk h2 span,
+  .contact h2 span {
+    color: #EF88AD;
+  }
+  
+  .about .row {
+    display: flex;
+    gap: 2rem;
+
+  }
+
+  .about .row .about-img {
+    flex: 1 1 45rem;
+  }
+
+.about .row .about-img img {
+  width: 350px; 
+  display: block;
+  margin-left: 0;
+  margin-right: auto;
+  border-radius: 10px;
+}
+.about.row .content {
+    flex: 1 1 35rem;
+    padding: 0;
+}
+
+.about .row .content h3 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+
+
+}
+
+.about .row .content p {
+    margin-bottom: 0.8rem;
+    font-size: 1.3rem;
+    font-weight: 200;
+    line-height: 1.6rem;
+}
+
+/*produk section*/
+
+.produk h2, .contact h2 {
+    margin-bottom: 1rem;
+}
+
+.produk p, .contact p {
+    text-align: center;
+    max-width: 30rem;
+    margin: auto;
+    font-weight: 100;
+    line-height: 1.6;
+    font-size: 1.2rem;
+
+}
+
+
+.produk .row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 3rem;
+    justify-content: center;
+
+}
+
+.produk .row .produk-card {
+    text-align: center;
+    padding-bottom: 3rem;
+
+}
+
+.produk .row .produk-card img {
+    border-radius: 50%;
+    width: 80%;
+}
+
+.produk .row .produk-card .produk-card-title {
+    margin: 1rem auto 0.5rem;
+}
+
+/*contact sec*/
+
+.contact .row {
+  display: flex;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+  background-color: #222;
+  border-radius: 1rem;
+  overflow: hidden;
+
+
+}
+
+.contact .row .map {
+  flex: 1 1 50%;
+  height: 350px;
+  border: none;
+}
+
+.contact .row .form {
+  flex: 1 1 50%;
+  padding: 2rem;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+.contact .row from {
+  width: 100%;
+  max-width: 400px;
+}
+
+.contact .row form .input-group {
+  display: flex;
+  align-items: center;
+  margin-top: 1.5rem;
+  background-color: #EF88AD;
+  border: 1px solid white;
+  padding-left: 1rem;
+  border-radius: 0.5rem;
+
+}
+.contact .row form .input-group input {
+  width: 100%;
+  padding: 1rem;
+  font-size: 1.4rem;
+  background: none;
+  color: #fff;
+  border: none;
+}
+
+.contact .row form .btn {
+  margin-top: 2rem;
+  display: inline-block;
+  padding: 1rem 2rem;
+  font-size: 1.5rem;
+  color: #fff;
+  background-color: #530023;
+  cursor: pointer;
+  border: none;
+  border-radius: 0.5rem;
+}
+
+/*footer*/
+footer {
+  background-color: #7a0636;
+  text-align: center;
+  padding: 1rem 0 3rem;
+  margin-top: 3.2rem;
+}
+
+footer .socials {
+  padding: 1rem 0;
+}
+
+footer .socials a {
+  color: #ffffff;
+  margin: 1rem;
+}
+
+footer .socials a:hover, 
+footer .links a:hover {
+  color: #000000;
+}
+
+footer .links {
+  margin-bottom: 1.4rem;
+}
+
+footer .links a {
+  color: #fff;
+  padding: 0.7rem 1rem;
+
+}
+
+footer .credit {
+  font-size: 0.8rem;
+
+}
+
+footer .credit a {
+  color: rgb(238, 255, 0);
+  font-weight: 700;
+}
+
+
+
+
+
+
+
+  
+  /* ===================================== */
+  /*              MEDIA QUERIES            */
+  /* ===================================== */
+  
+  /* Ukuran layar laptop */
+  @media (max-width: 1366px) {
+    html {
+      font-size: 75%; /* mengecilkan font agar proporsional */
+    }
+  }
+  
+  /* Ukuran layar tablet */
+  @media (max-width: 768px) {
+    html {
+      font-size: 62.5%;
+    }
+  
+    #hamburger-menu {
+      display: inline-block; /* tampilkan hamburger di tablet */
+    }
+  
+    /* Menu navbar jadi sidebar */
+    .navbar .navbar-nav {
+      position: absolute;
+      top: 100%;
+      right: -100%;
+      background-color: var(--pink);
+      width: 30rem;
+      height: 100vh;
+      transition: 0.3s;
+    }
+  
+    /* Aktifkan menu saat toggle */
+    .navbar .navbar-nav.active {
+      right: 0;
+    }
+  
+    /* Tampilan menu dalam mode tablet */
+    .navbar .navbar-nav a {
+      color: #ffffff;
+      display: block;
+      margin: 1.5rem;
+      padding: 0.5rem;
+      font-size: 2rem;
+    }
+  
+    /* Efek garis bawah pada mode tablet */
+    .navbar .navbar-nav a::after {
+      transform-origin: 0 0;
+    }
+  
+    .navbar .navbar-nav a:hover::after {
+      transform: scaleX(0.2);
+    }
+
+    .about .row  {
+        flex-wrap: wrap;
+    }
+
+    .about .row .about-img,
+    .about .row .content {
+      flex:  1 1 100%;
+    
+    }
+  
+    .about .row .about-img img {
+      margin: 0 auto; /* center gambar */
+      height: auto;
+      object-fit: cover;
+      object-position: center;
+    }
+  
+    .about .row .content {
+      margin-top: 1rem;
+      padding: 0;
+    }
+
+    .about .row .content h3 {
+
+    margin-top: 1rem;
+    font-size: 2rem;
+    }
+    .about .row .content p {
+        font-size: 1.6rem;
+    }
+
+    .produk p{
+      font-size: 1.2rem;
+    }
+
+    .contact .row {
+      flex-direction: column;
+    }
+
+    .contact .row .map,
+    .contact .row .form {
+      flex: 1 1 100%;
+    }
+
+    .contact .row form {
+        padding-top: 2rem 1rem ;
+      }
+    }
+  
+  
+  
+  /* Ukuran layar handphone */
+  @media (max-width: 450px) {
+    html {
+      font-size: 55%; 
+    }
+  }
+  
